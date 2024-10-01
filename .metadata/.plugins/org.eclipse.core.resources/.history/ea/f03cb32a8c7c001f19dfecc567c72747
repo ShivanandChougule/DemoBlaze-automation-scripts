@@ -1,0 +1,19 @@
+package pageObject;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class SignUp extends BasePage {
+
+	public SignUp(WebDriver driver) {
+		super(driver);
+	}
+	
+	//locator of sign up 
+
+@FindBy(xpath="//input[@id='sign-password']") WebElement password;
+@FindBy(xpath="//input[@id='sign-username']")  WebElement username;
+@FindBy(xpath="//button[normalize-space()='Sign up']")  WebElement signUp;
+	
+}

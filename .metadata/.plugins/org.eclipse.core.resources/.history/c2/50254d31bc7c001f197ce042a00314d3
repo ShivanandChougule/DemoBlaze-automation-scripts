@@ -1,0 +1,23 @@
+package testCases;
+
+import org.testng.annotations.Test;
+
+import pageObject.HomePage;
+import pageObject.SignUp;
+import testBase.BaseClass;
+
+public class TC001_Sign_up_Test extends BaseClass {
+
+
+@Test()
+public void verify_sign_up() {
+	HomePage hp= new HomePage(driver);
+	hp.clickSignup();
+	SignUp sp=new SignUp(driver);
+	sp.enter_Username();
+	sp.enter_Password();
+	sp.click_on_Login();
+	
+}
+
+}

@@ -1,0 +1,83 @@
+package testCases;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import pageObject.Cart;
+import pageObject.HomePage;
+import testBase.BaseClass;
+
+public class TC005_Cart_Test extends BaseClass {
+	@Test()
+	public void verify_Product_is_Added_in_cart() throws InterruptedException {
+		 //logger.info("****************** Strating TC005_Cart_Test
+		// ********************");
+		// add to cart product
+		/*
+		  try { HomePage hp = new HomePage(driver);
+		  hp.select_Categories(p.getProperty("Phone")); Thread.sleep(2000);
+		  
+		  hp.add_To_Cart_Product();
+		  
+		  //check all product are added in cart hp.click_on_Cart_link();
+		  
+		 
+		 } catch (Exception e) { System.out.println(e); } logger.
+		 info("****************** Finished TC005_Cart_Test ********************");
+		 */
+
+	    HomePage hp = new HomePage(driver);
+		//hp.select_Categories(p.getProperty("Phone"));
+	    hp.click_on_Home_link();
+	    Thread.sleep(4000);
+	    hp.click_on_phone_category();
+		Thread.sleep(4000);
+		hp.add_To_Cart_All_Product();
+		Thread.sleep(2000);
+		hp.click_on_Cart_link();
+		Thread.sleep(2000);
+
+		
+		
+	}
+		/* public int totalRowsCount() throws InterruptedException {
+			 Thread.sleep(2000);
+			 //locate total rows in table
+		List<WebElement> rows = driver.findElements(By.xpath("//*[@id='tbodyid']//tr"));
+		int totalRows = rows.size();
+		Thread.sleep(2000);
+		//System.out.println(totalRows);
+		return totalRows;
+	}
+
+	public void calculate_Total_Amount() throws InterruptedException {
+
+		int totalAmount=0;
+		for (int r = 1; r <= totalRowsCount(); r++) {
+			Thread.sleep(2000);
+            //locate table price column individual price of product
+			String text = driver.findElement(By.xpath("//*[@id='tbodyid']//tr["+r+"]/td[3]")).getText();
+			int price = Integer.parseInt(text);
+			Thread.sleep(2000);
+			//calculate total price
+			totalAmount += price;
+
+		}
+		 int tAmt=totalAmount;                                 
+		 Thread.sleep(2000);
+		
+	//locate the total in cart page
+	String total=driver.findElement(By.xpath("//div[@class='panel-heading']//h3")).getText(); 
+	int amt=Integer.parseInt(total);
+	//Compare the total and calculated total
+ if(amt==tAmt){
+ }
+		
+	}
+		 */	
+	}

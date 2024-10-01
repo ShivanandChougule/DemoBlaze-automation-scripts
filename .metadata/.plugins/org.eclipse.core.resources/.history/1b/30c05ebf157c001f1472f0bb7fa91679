@@ -1,0 +1,42 @@
+package Test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Test {
+
+	WebDriver driver;
+
+	public void pTest() {
+
+		PageFactory.initElements(driver, this); // Mandatory
+	}
+
+	@FindBy(xpath = "//li[@class='nav-item active']//a[@class='nav-link']")
+	WebElement home;
+	@FindBy(xpath = "//a[normalize-space()='Contact']")
+	WebElement contact;
+	@FindBy(xpath = "//a[normalize-space()='About us']")
+	WebElement aboutUs;
+	@FindBy(xpath = "//a[normalize-space()='Cart']")
+	WebElement cart;
+	@FindBy(xpath = "//a[@id='login2']")
+	WebElement logIn;
+//@FindBy(linkText="Sign up") WebElement signUp;
+	@FindBy(xpath = "//a[@id='signin2']")
+	WebElement signUp;
+
+//action method
+
+	public void clickHome() {
+		home.click();
+	}
+
+	public void click_Sign_up_link() throws InterruptedException {
+//System.out.println("*******************");
+		signUp.click();
+
+	}
+}

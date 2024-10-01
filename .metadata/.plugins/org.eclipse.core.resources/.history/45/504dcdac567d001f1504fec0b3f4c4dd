@@ -1,0 +1,53 @@
+package testCases;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import pageObject.HomePage;
+import pageObject.Login;
+import testBase.BaseClass;
+import utilities.DataProviders;
+
+public class TC003_Login_TestDDT extends BaseClass {
+
+	@Test(dataProvider = "loginData", dataProviderClass = DataProviders.class) // getting data provider from different
+																				// class
+	public void verify_Login_with_DDT(String uname, String pword, String exp) throws InterruptedException {
+		try {
+			// Home page
+			HomePage hp = new HomePage(driver);
+			hp.click_on_Login_link();
+			// login pop up
+			Login lp = new Login(driver);
+			lp.enter_Username(uname);
+			lp.enter_Password(pword);
+			lp.click_on_Login();
+			boolean lnkLogout = lp.logout_link_display();
+			Thread.sleep(3000);
+			System.out.println(lnkLogout);
+			lp.click_on_Logout();
+			/*if (exp.equalsIgnoreCase("valid")) {
+
+				if (lnkLogout == true) {
+					lp.click_on_Logout();
+					Assert.assertTrue(true);
+				}
+			} else {
+				Assert.assertTrue(false);
+			}
+			if (exp.equalsIgnoreCase("Invalid")) {
+
+				if (lnkLogout == true) {
+					lp.click_on_Logout();
+					Assert.assertTrue(true);
+				}
+			} else {
+				Assert.assertTrue(false);
+			}*/
+
+		} catch (Exception e) {
+			//Assert.fail();
+			System.out.println(e);
+		}
+	}
+}

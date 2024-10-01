@@ -1,0 +1,23 @@
+package pageObject;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class Contact extends BasePage{
+
+	
+	public Contact(WebDriver driver) {
+		super(driver);
+	}
+	
+	
+
+@FindBy(xpath="//body/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/input[1]") WebElement txtEmail;
+@FindBy(xpath="//body/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/input[1]")  WebElement txtContactEmail;
+@FindBy(xpath="//div[@role='document']//div//div//form//div//textarea")  WebElement txtMessage;
+@FindBy(xpath="//button[normalize-space()='Send message']")  WebElement btnSendMessage;
+
+
+//alert===== Thanks for the message!!
+}

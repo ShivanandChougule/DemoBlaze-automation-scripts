@@ -1,0 +1,108 @@
+package pageObject;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class HomePage extends BasePage {
+
+	// constructor
+	public HomePage(WebDriver driver) {
+		super(driver);
+	}
+
+// locator
+	@FindBy(linkText = "Home")
+	WebElement lnkhome;
+
+	@FindBy(linkText = "Contact")
+	WebElement lnkcontact;
+
+	@FindBy(linkText = "About us")
+	WebElement lnkaboutUs;
+
+	@FindBy(linkText = "Cart")
+	WebElement lnkcart;
+
+	@FindBy(linkText = "Log in")
+	WebElement lnklogIn;
+
+	@FindBy(linkText = "Sign up")
+	WebElement lnksignUp;
+
+
+
+	@FindBy(xpath = "//a[normalize-space()='Phones']")
+	WebElement phones;
+	@FindBy(xpath = "//a[normalize-space()='Laptops']")
+	WebElement laptops;
+	@FindBy(xpath = "//a[normalize-space()='Monitors']")
+	WebElement monitors;
+
+
+
+//  action method
+	public void click_on_SignUp_link() {
+		lnksignUp.click();
+	}
+
+	public void click_on_Login_link() {
+
+		lnklogIn.click();
+	}
+
+	public void click_on_Home_link() {
+		lnkhome.click();
+	}
+
+	public void click_on_Contact_link() {
+
+		lnkcontact.click();
+	}
+
+	public void click_on_Cart_link() {
+		lnkcart.click();
+	}
+
+	public void select_Categories_click_on_Categories(String categories) {
+
+		switch (categories) {
+		case "phones":
+			phones.click();
+			break;
+		case "laptops":
+			laptops.click();
+			break;
+		case "monitors":
+			monitors.click();
+			break;
+		}
+	}
+
+	public void add_To_Cart_Product() throws InterruptedException {
+		List<WebElement> links = driver.findElements(By.xpath("//div[@id='tbodyid']//div/a"));
+		for (int a = 1; a <= links.size(); a++) {
+
+			links.get(a).click();
+			// click on add to cart
+			if (addToCart.isDisplayed()) {
+				addToCart.click();
+				Thread.sleep(2000);
+				try {
+                    // alert =======Product added.
+					driver.switchTo().alert().accept();
+
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+			}
+
+			driver.navigate().back();
+		}
+
+	}
+
+}

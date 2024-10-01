@@ -1,0 +1,19 @@
+package testCases;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import pageObject.HomePage;
+
+public class TC001_Sign_up_Test extends BaseClass {
+
+
+WebDriver driver;
+
+@Test()
+public void acc() {
+	//HomePage hp= new HomePage(driver);
+	System.out.println( driver.getTitle());
+}
+
+}
