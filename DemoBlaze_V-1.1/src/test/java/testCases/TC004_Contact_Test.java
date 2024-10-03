@@ -9,7 +9,7 @@ import testBase.BaseClass;
 
 public class TC004_Contact_Test extends BaseClass {
 
-	@Test()
+	@Test(groups= {"Sanity","Master","Regression"})
 	public void verify_Contact_menu() {
 		logger.info("****************** Strating TC004_Contact_Test ********************");
 

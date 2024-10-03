@@ -18,7 +18,7 @@ public class BaseClass {
 	public Logger logger; 
 
    public Properties p;
-	@BeforeClass()
+	@BeforeClass(groups= {"Master","Sanity","Regression","DataProvider"})
 	public void setup() throws IOException, InterruptedException {
 
 		// login config.properties file
@@ -36,9 +36,9 @@ public class BaseClass {
 
 	}
 
-	@AfterClass()
+	@AfterClass(groups= {"Master","Sanity","Regression","DataProvider"})
 	public void tearDown() {
-		 //driver.quit();
+		 driver.quit();
 	}
 
 	public String randomString() {

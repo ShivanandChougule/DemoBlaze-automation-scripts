@@ -9,7 +9,7 @@ import testBase.BaseClass;
 
 public class TC002_Login_Test extends BaseClass {
 
-	@Test()
+	@Test(groups= {"Sanity","Master","Regression"})
 	public void verify_login() {
 		logger.info("****************** Strating TC002_Login_Test ********************");
 
@@ -26,15 +26,18 @@ public class TC002_Login_Test extends BaseClass {
 			logger.info("***** Entered  valid Password *****");
 			lp.click_on_Login();
 			logger.info("***** Click on Login Button *****");
-
-			Thread.sleep(3000);
-
-			lp.click_on_Logout();
-			logger.info("***** Click on Logout Link *****");
-			Assert.assertTrue(true);
+            try {
+            	logger.info("***** User is Succesfully logined !! *****");
+            	lp.click_on_Logout();
+            	logger.info("***** Click on Logout Link *****");
+            	Assert.assertTrue(true);
+            }catch(Exception e) {
+            	logger.info("***** Test is Failed *****");
+    			Assert.assertTrue(false);
+            }
 		} catch (Exception e) {
 			logger.info("***** Test is Failed *****");
-			Assert.assertTrue(false);
+			Assert.fail();
 		}
 		logger.info("****************** Finished TC002_Login_Test ********************");
 

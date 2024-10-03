@@ -12,7 +12,7 @@ import utilities.DataProviders;
 
 public class TC003_Login_TestDDT extends BaseClass {
 
-	@Test(dataProvider = "loginData", dataProviderClass = DataProviders.class) // getting data provider from different
+	@Test(dataProvider = "loginData", dataProviderClass = DataProviders.class,groups= {"DataProvider"}) // getting data provider from different
 																				// class
 	public void verify_Login_with_DDT(String uname, String pword, String exp) throws InterruptedException {
 		logger.info("****************** Strating TC003_Login_TestDDT ********************");

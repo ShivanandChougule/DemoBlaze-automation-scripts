@@ -11,7 +11,7 @@ import testBase.BaseClass;
 
 public class TC001_Sign_up_Test extends BaseClass {
 
-	@Test()
+	@Test(groups= {"Sanity","Master"})
 	public void verify_sign_up() throws InterruptedException {
 		logger.info("****************** Strating TC001_Sign_up_Test ********************");
 
@@ -29,11 +29,11 @@ public class TC001_Sign_up_Test extends BaseClass {
 			sp.enter_Password(password);
 			logger.info("**** Entered Password ***");
 
-			sp.click_on_SignUp();
-			Thread.sleep(3000);
-			logger.info("**** Click on Sign up button ***");
 
 			try {
+				sp.click_on_SignUp();
+				logger.info("**** Click on Sign up button ***");
+				
 				Alert a = driver.switchTo().alert();
 
 				a.accept();
@@ -42,9 +42,12 @@ public class TC001_Sign_up_Test extends BaseClass {
 			} catch (NoAlertPresentException e) {
                e.printStackTrace();
 			}
+			logger.info("**** Sign up is Succesfully !!! ***");
 
 			Assert.assertTrue(true);
 		} catch (Exception e) {
+			
+			
 			logger.info("**** Test is Failed ***");
 
 			Assert.fail();
